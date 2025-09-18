@@ -47,3 +47,4 @@ jobs:
           DO_WAIT: true
           DO_POLICY_CHECK: true
           DO_JOB_SUMMARY: true
+          DO_EXPORT: true
