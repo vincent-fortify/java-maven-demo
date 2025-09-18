@@ -17,6 +17,7 @@ jobs:
     permissions:
       contents: write
       security-events: write
+      pull-requests: write  # Add this line
     runs-on: ubuntu-latest
     
     steps:    
