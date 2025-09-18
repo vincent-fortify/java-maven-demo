@@ -44,5 +44,5 @@ jobs:
           DO_SETUP: true
           # PACKAGE_EXTRA_OPTS: -bt mvn
           DO_WAIT: true
-          # DO_POLICY_CHECK: true
-          # DO_JOB_SUMMARY: true
+          DO_POLICY_CHECK: true
+          DO_JOB_SUMMARY: true
