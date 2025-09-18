@@ -1,0 +1,47 @@
+name: Fortify Security Scan
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: '30 1 * * 6'
+
+permissions:
+  contents: read
+
+jobs:
+  Fortify-SAST:
+    permissions:
+      contents: read
+      security-events: write
+    runs-on: ubuntu-latest
+    
+    steps:    
+      - name: Check out source code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'maven'
+          
+      - name: Run Fortify on Demand SAST & SCA Scan
+        uses: fortify/github-action@v2
+        with:
+          sast-scan: true
+          debricked-sca-scan: true
+        env:
+          FOD_URL: https://ams.fortify.com
+          FOD_TENANT: FranklinBank24
+          FOD_USER: vdeng
+          FOD_PASSWORD: ${{secrets.FOD_PAT}}
+          # FOD_RELEASE: ${{vars.FOD_RELEASE}}
+          PACKAGE_EXTRA_OPTS: -bt mvn
+          DO_WAIT: true
+          DO_POLICY_CHECK: true
+          DO_JOB_SUMMARY: true
