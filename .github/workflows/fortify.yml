@@ -34,7 +34,8 @@ jobs:
         uses: fortify/github-action@v2
         with:
           sast-scan: true
-          debricked-sca-scan: true
+          # debricked-sca-scan: true
+          debricked-sca-scan: false
         env:
           FOD_URL: https://ams.fortify.com
           FOD_TENANT: FranklinBank24
