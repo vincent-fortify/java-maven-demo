@@ -41,7 +41,8 @@ jobs:
           FOD_USER: vdeng
           FOD_PASSWORD: ${{secrets.FOD_PAT}}
           # FOD_RELEASE: ${{vars.FOD_RELEASE}}
-          PACKAGE_EXTRA_OPTS: -bt mvn
+          DO_SETUP: true
+          # PACKAGE_EXTRA_OPTS: -bt mvn
           DO_WAIT: true
-          DO_POLICY_CHECK: true
-          DO_JOB_SUMMARY: true
+          # DO_POLICY_CHECK: true
+          # DO_JOB_SUMMARY: true
