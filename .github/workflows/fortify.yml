@@ -37,8 +37,9 @@ jobs:
           # FOD_RELEASE: ${{vars.FOD_RELEASE}}
           DO_SETUP: true
           DO_SCA_SCAN: true
-          # PACKAGE_EXTRA_OPTS: -bt mvn
+          OVERRIDE_SAST_SETTINGS: "true"
+          PACKAGE_EXTRA_OPTS: "-bt mvn -bf pom.xml"
           DO_WAIT: true
-          DO_POLICY_CHECK: true
+          DO_CHECK_POLICY: true
           DO_JOB_SUMMARY: true
           DO_EXPORT: true
