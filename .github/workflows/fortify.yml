@@ -37,7 +37,8 @@ jobs:
           # FOD_RELEASE: ${{vars.FOD_RELEASE}}
           DO_SETUP: true
           DO_SCA_SCAN: true
-          OVERRIDE_SAST_SETTINGS: "true"
+          OVERRIDE_SAST_SETTINGS: true
+          DO_AVIATOR_AUDIT: true
           PACKAGE_EXTRA_OPTS: "-bt mvn -bf pom.xml"
           DO_WAIT: true
           DO_CHECK_POLICY: true
